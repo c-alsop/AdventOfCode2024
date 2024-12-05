@@ -63,7 +63,7 @@ int main(int argc, char** argv) {
 
     char* buffer = get_contents_of_file(argv[1]);
 
-    int* nums;
+    int* nums = malloc(sizeof(int));
     int nums_size = split_string_to_int(&nums, buffer, " \n\r");
 
     int* left = malloc(sizeof(int) * (nums_size/2));
