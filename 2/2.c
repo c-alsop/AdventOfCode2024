@@ -68,7 +68,7 @@ void check_levels_2(int levels_count, int* levels, int* order, int* error) {
     for (int skip = 0; skip < levels_count; skip++) {
         *error = 0;
         *order = UNKNOWN;
-        remove_elem(&new_levels, levels, levels_count, skip);
+        remove_level(&new_levels, levels, levels_count, skip);
         check_levels((levels_count - 1), new_levels, order, error);
         if (!(*error)) {
             free(new_levels);
@@ -78,7 +78,7 @@ void check_levels_2(int levels_count, int* levels, int* order, int* error) {
     free(new_levels);
 }
 
-void remove_elem(int** new_levels, int* levels, int levels_count, int index_to_remove) {
+void remove_level(int** new_levels, int* levels, int levels_count, int index_to_remove) {
     for (int i = 0; i < (levels_count - 1); i++) {
         (*new_levels)[i] = levels[i < index_to_remove ? i : i + 1];
     }
