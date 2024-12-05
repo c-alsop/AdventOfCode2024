@@ -24,12 +24,16 @@ int split_string_to_int(int** split_int, char* string_to_split, char* delim) {
     char* token = strtok(string_to_split, delim);
 
     *split_int = realloc(*split_int, sizeof(int) * (index + 1));
-    (*split_int)[index] = atoi(strdup(token));
+    char* str_token = strdup(token);
+    (*split_int)[index] = atoi(str_token);
+    free(str_token);
 
     while ((token = strtok(NULL, delim)) != NULL) {
         index++;
         *split_int = realloc(*split_int, sizeof(int) * (index + 1));
-        (*split_int)[index] = atoi(strdup(token));
+        str_token = strdup(token);
+        (*split_int)[index] = atoi(str_token);
+        free(str_token);
     }
     return ++index;
 }
