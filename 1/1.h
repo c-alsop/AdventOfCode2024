@@ -1,7 +1,7 @@
 /* 1.h */
 
-#ifndef 1_H
-#define 1_H
+#ifndef TASK_1_H
+#define TASK_1_H
 
 /* compare()
  * ~~~~~~~~~
@@ -25,4 +25,4 @@ int calc_dist(int* left, int* right, int size);
  */
 int similarity_score(int* left, int* right, int size);
 
-#endif /* 1_H */
+#endif /* TASK_1_H */

@@ -7,8 +7,17 @@
 int split_string(char*** split_string, char* string_to_split, char* delim) {
     int index = 0;
     char* token = strtok(string_to_split, delim);
+    
+    if (token == NULL) {
+        *split_string = NULL;
+        return 0;
+    }
 
     *split_string = realloc(*split_string, sizeof(char*) * (index + 1));
+    if (*split_string == NULL) {
+        fprintf(stderr, "Realloc failed\n");
+    }
+
     (*split_string)[index] = strdup(token);
 
     while ((token = strtok(NULL, delim)) != NULL) {
