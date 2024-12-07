@@ -1,9 +1,9 @@
 /* 1.c */
-
 #include <stdlib.h>
 #include <stdio.h>
 #include "my_string.h"
 #include "shared.h"
+#include "1.h"
 
 int compare(const void* arg1, const void* arg2) {
     return *(int*)arg1 > *(int*)arg2;
