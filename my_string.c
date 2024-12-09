@@ -1,6 +1,7 @@
 /* my_string.c */
 #include <string.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include "my_string.h"
 #include <stdio.h>
 
@@ -40,6 +41,25 @@ int split_string_to_int(int** split_int, char* string_to_split, char* delim) {
     while ((token = strtok(NULL, delim)) != NULL) {
         index++;
         *split_int = realloc(*split_int, sizeof(int) * (index + 1));
+        str_token = strdup(token);
+        (*split_int)[index] = atoi(str_token);
+        free(str_token);
+    }
+    return ++index;
+}
+
+int split_string_to_chonky_int(uint64_t** split_int, char* string_to_split, char* delim) {
+    int index = 0;
+    char* token = strtok(string_to_split, delim);
+
+    *split_int = realloc(*split_int, sizeof(uint64_t) * (index + 1));
+    char* str_token = strdup(token);
+    (*split_int)[index] = atol(str_token);
+    free(str_token);
+
+    while ((token = strtok(NULL, delim)) != NULL) {
+        index++;
+        *split_int = realloc(*split_int, sizeof(uint64_t) * (index + 1));
         str_token = strdup(token);
         (*split_int)[index] = atoi(str_token);
         free(str_token);

@@ -17,6 +17,12 @@ int split_string(char*** split_string, char* string_to_split, char* delim);
  * split string (split_int). */
 int split_string_to_int(int** split_int, char* string_to_split, char* delim);
 
+/* split_string_to_chonky_int()
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * Same as split_string_to_int() but for use with bigger ints.
+ */
+int split_string_to_chonky_int(uint64_t** split_int, char* string_to_split, char* delim);
+
 /* splice_str()
  * ~~~~~~~~~~~~
  * Takes in a string to splice and splices it from the start index, up to
